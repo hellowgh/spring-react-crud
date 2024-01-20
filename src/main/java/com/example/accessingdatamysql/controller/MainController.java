@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.crypto.interfaces.PBEKey;
+
 @Controller
 @RequestMapping("/user")
 public class MainController {
@@ -28,5 +30,19 @@ public class MainController {
         userRepository.save(user);
 
         return "saved";
+    }
+
+    @DeleteMapping("/delete")
+    public @ResponseBody String deleteUser(@RequestParam Integer id) {
+        userRepository.deleteById(id);
+
+        return "done";
+    }
+
+    @PutMapping("/update")
+    public @ResponseBody User updateUser(@RequestBody  User user) {
+        userRepository.save(user);
+
+        return user;
     }
 }
