@@ -3,6 +3,7 @@ package com.example.accessingdatamysql.service;
 import com.example.accessingdatamysql.DTO.EmployeeDto;
 import com.example.accessingdatamysql.DTO.EmployeeMapper;
 import com.example.accessingdatamysql.entity.Employee;
+import com.example.accessingdatamysql.exception.ResourceNotFoundException;
 import com.example.accessingdatamysql.repo.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     @Override
     public List<EmployeeDto> getAllEmployees() {
@@ -24,10 +25,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee createEmployee(EmployeeDto employeeDto) {
+    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
         Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
 
-        return employeeRepository.save(employee);
+        Employee savedEmployee = employeeRepository.save(employee);
+
+        return EmployeeMapper.mapToEmployeeDto(savedEmployee);
     }
 
+    @Override
+    public EmployeeDto getEmployeeById(Long id) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("employee not exist with id:" + id));
+
+        return EmployeeMapper.mapToEmployeeDto(employee);
+    }
 }

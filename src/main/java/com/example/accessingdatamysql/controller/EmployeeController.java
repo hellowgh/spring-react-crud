@@ -25,8 +25,14 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDto employeeDto) {
-        Employee employee = employeeService.createEmployee(employeeDto);
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
+        EmployeeDto employee = employeeService.createEmployee(employeeDto);
         return ResponseEntity.ok(employee);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id) {
+        EmployeeDto employeeDto = employeeService.getEmployeeById(id);
+        return ResponseEntity.ok(employeeDto);
     }
 }
