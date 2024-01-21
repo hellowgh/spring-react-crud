@@ -1,13 +1,11 @@
 package com.example.accessingdatamysql.controller;
 
 import com.example.accessingdatamysql.DTO.EmployeeDto;
+import com.example.accessingdatamysql.entity.Employee;
 import com.example.accessingdatamysql.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +24,9 @@ public class EmployeeController {
         return ResponseEntity.ok(employees);
     }
 
+    @PostMapping
+    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDto employeeDto) {
+        Employee employee = employeeService.createEmployee(employeeDto);
+        return ResponseEntity.ok(employee);
+    }
 }
