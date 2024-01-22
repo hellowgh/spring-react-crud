@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { listEmployees } from '../service/employeeService.js';
 import { Button, Table } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const columns = [
   {
@@ -44,10 +45,15 @@ const ListEmployeeComponent = () => {
     getAllEmployees();
   }, []);
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/add-employee');
+  };
+
   return (
     <>
       <div className="btn-row mb-20">
-        <Button type="primary">Add Employee</Button>
+        <Button onClick={handleClick} type="primary">Add Employee</Button>
       </div>
       <Table dataSource={employees} columns={columns}/>
     </>
