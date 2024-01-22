@@ -23,6 +23,11 @@ const columns = [
     dataIndex: 'email',
     key: 'email',
   },
+  {
+    title: 'Actions',
+    dataIndex: '',
+    key: '',
+  },
 ];
 
 const ListEmployeeComponent = () => {
