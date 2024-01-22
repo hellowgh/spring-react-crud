@@ -1,6 +1,6 @@
 package com.example.accessingdatamysql.controller;
 
-import com.example.accessingdatamysql.DTO.EmployeeDto;
+import com.example.accessingdatamysql.dto.EmployeeDto;
 import com.example.accessingdatamysql.service.EmployeeService;
 
 import lombok.AllArgsConstructor;
