@@ -2,13 +2,15 @@ import { Tabs } from 'antd';
 import BookList from './BookList.jsx';
 import {listEmployees} from '../service/employeeService.js';
 import { useEffect, useState } from 'react';
+import {Button} from 'antd';
 
 function Home () {
   const [books, setBooks] = useState([]);
 
   async function getBooks () {
     const res = await listEmployees();
-    console.log(13, res);
+    res.forEach(item => item.key = item.id);
+    setBooks(res);
   }
 
   useEffect(() => {
@@ -19,7 +21,12 @@ function Home () {
     {
       key: '1',
       label: '图书',
-      children: <BookList books={books}/>,
+      children: (
+        <>
+          <Button type="primary">Add Employee</Button>
+          <BookList books={books}/>
+        </>
+      ),
     },
     {
       key: '2',

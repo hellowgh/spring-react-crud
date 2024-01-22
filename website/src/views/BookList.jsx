@@ -2,24 +2,24 @@ import { Table } from 'antd';
 
 const columns = [
   {
-    title: '标题',
-    dataIndex: 'title',
-    key: 'title',
+    title: 'Employ Id',
+    dataIndex: 'id',
+    key: 'id',
   },
   {
-    title: '作者',
-    dataIndex: 'author',
-    key: 'author',
+    title: 'First Name',
+    dataIndex: 'firstName',
+    key: 'firstName',
   },
   {
-    title: 'ISBN',
-    dataIndex: 'isbn',
-    key: 'isbn',
+    title: 'Last Name',
+    dataIndex: 'lastName',
+    key: 'lastName',
   },
   {
-    title: '摘要',
-    dataIndex: 'summary',
-    key: 'summary',
+    title: 'Email',
+    dataIndex: 'email',
+    key: 'email',
   },
 ];
 
