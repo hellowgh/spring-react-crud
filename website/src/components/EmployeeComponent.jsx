@@ -16,11 +16,9 @@ const EmployeeComponent = () => {
     const employee = { firstName, lastName, email };
 
     if (id) {
-      const res = await updateEmployee(id, employee);
-      console.log(123, res);
+      await updateEmployee(id, employee);
     } else {
-      const res = await createEmployee();
-      console.log(88, res);
+      await createEmployee(employee);
       navigate('/employees');
     }
   };
