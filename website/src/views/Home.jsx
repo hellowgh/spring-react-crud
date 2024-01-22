@@ -1,15 +1,14 @@
 import { Tabs } from 'antd';
 import BookList from './BookList.jsx';
-import { get } from '../utils/request.js';
+import {listEmployees} from '../service/employeeService.js';
 import { useEffect, useState } from 'react';
 
 function Home () {
   const [books, setBooks] = useState([]);
 
   async function getBooks () {
-    const res = await get('/api/book/all');
-    res.forEach(i => i.key = i.isbn);
-    setBooks(res);
+    const res = await listEmployees();
+    console.log(13, res);
   }
 
   useEffect(() => {
