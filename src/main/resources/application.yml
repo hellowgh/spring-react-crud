@@ -3,7 +3,7 @@ spring:
     # hibernate配置（hibernate由jpa提供）
     hibernate:
       ddl-auto: update # update: hibernate将根据实体类自动更新数据库表
-    show-sql: true
+    show-sql: true # 输出sql语句，方便调试
 
   # 数据源配置
   datasource:
