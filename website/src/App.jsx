@@ -1,10 +1,14 @@
 import './App.css';
-import Home from './views/Home.jsx';
+import TheHeader from './components/TheHeader.jsx';
+import TheFooter from './components/TheFooter.jsx';
+import ListEmployeeComponent from './components/ListEmployeeComponent.jsx';
 
 function App () {
   return (
     <>
-      <Home></Home>
+      <TheHeader></TheHeader>
+      <ListEmployeeComponent></ListEmployeeComponent>
+      <TheFooter></TheFooter>
     </>
   );
 }
