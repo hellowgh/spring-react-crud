@@ -1,8 +1,11 @@
 spring:
   jpa:
+    # hibernate配置（hibernate由jpa提供）
     hibernate:
-      ddl-auto: update
+      ddl-auto: update # update: hibernate将根据实体类自动更新数据库表
     show-sql: true
+
+  # 数据源配置
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
     username: springuser

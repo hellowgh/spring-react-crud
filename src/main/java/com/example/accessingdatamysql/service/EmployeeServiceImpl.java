@@ -1,7 +1,7 @@
 package com.example.accessingdatamysql.service;
 
-import com.example.accessingdatamysql.DTO.EmployeeDto;
-import com.example.accessingdatamysql.DTO.EmployeeMapper;
+import com.example.accessingdatamysql.dto.EmployeeDto;
+import com.example.accessingdatamysql.dto.EmployeeMapper;
 import com.example.accessingdatamysql.entity.Employee;
 import com.example.accessingdatamysql.exception.ResourceNotFoundException;
 import com.example.accessingdatamysql.repo.EmployeeRepository;

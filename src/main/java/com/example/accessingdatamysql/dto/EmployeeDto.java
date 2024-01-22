@@ -1,4 +1,4 @@
-package com.example.accessingdatamysql.DTO;
+package com.example.accessingdatamysql.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
