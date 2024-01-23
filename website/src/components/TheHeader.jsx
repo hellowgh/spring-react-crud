@@ -1,11 +1,9 @@
 const TheHeader = () => {
   return (
     <div>
-      <header className="theHeader dfcc">
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-          <div>
-            员工管理系统
-          </div>
+      <header className="theHeader">
+        <nav className="header-text dfcc">
+          员工管理系统
         </nav>
       </header>
     </div>

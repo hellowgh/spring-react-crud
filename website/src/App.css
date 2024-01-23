@@ -1,9 +1,6 @@
 #root {
-    margin: 0 auto;
-    padding: 2em;
-    padding-top: 0;
-    height: 100%;
-    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .logo {
@@ -70,4 +67,19 @@
 
 .mb-20 {
     margin-bottom: 20px;
+}
+
+.btn-row {
+    padding: 0 20px;
+}
+
+.theHeader {
+    margin-bottom: 14px;
+}
+
+.header-text {
+    width: 100%;
+    color: #fff;
+    height: 50px;
+    background-color: #000;
 }
