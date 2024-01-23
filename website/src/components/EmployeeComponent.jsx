@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createEmployee, getEmployeeById, updateEmployee } from '../service/employeeService.js';
+import { Button } from 'antd';
 
 const EmployeeComponent = () => {
   const [firstName, setFirstName] = useState('');
@@ -45,8 +46,13 @@ const EmployeeComponent = () => {
     }
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
+      <Button onClick={goBack} type={'primary'}>Back</Button>
       <br/><br/>
       <div className="container">
         <div className="row">

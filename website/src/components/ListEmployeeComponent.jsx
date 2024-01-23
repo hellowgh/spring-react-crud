@@ -6,11 +6,17 @@ import { useNavigate } from 'react-router-dom';
 const ListEmployeeComponent = () => {
   const [employees, setEmployees] = useState([]);
 
-  const removeEmployee = async (obj) => {
-    const { id } = obj;
+  const removeEmployee = async (employee) => {
+    const { id } = employee;
 
     await deleteEmployee(id);
     await getAllEmployees();
+  };
+
+  const updateEmployee = (employee) => {
+    const { id } = employee;
+
+    navigate(`/edit-employee/${id}`);
   };
 
   const columns = [
@@ -38,10 +44,10 @@ const ListEmployeeComponent = () => {
       title: 'Actions',
       dataIndex: '',
       key: '',
-      render: (record) => (
+      render: (employee) => (
         <>
-          <Button type={'primary'} className="mr-20">Update</Button>
-          <Button onClick={() => removeEmployee(record)} danger>Delete</Button>
+          <Button onClick={() => updateEmployee(employee)} type={'primary'} className="mr-20">Update</Button>
+          <Button onClick={() => removeEmployee(employee)} danger>Delete</Button>
         </>
       ),
     },
