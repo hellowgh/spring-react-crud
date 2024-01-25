@@ -28,34 +28,30 @@ public class EmployeeController {
 
     @GetMapping
     public List<EmployeeDto> getAllEmployee() {
-        List<EmployeeDto> employees = employeeService.getAllEmployees();
 
-        return employees;
+        return employeeService.getAllEmployees();
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
-        EmployeeDto employee = employeeService.createEmployee(employeeDto);
-        return ResponseEntity.ok(employee);
+    public EmployeeDto createEmployee(@RequestBody EmployeeDto employeeDto) {
+        return employeeService.createEmployee(employeeDto);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id) {
-        EmployeeDto employeeDto = employeeService.getEmployeeById(id);
-        return ResponseEntity.ok(employeeDto);
+    public EmployeeDto getEmployeeById(@PathVariable Long id) {
+        return employeeService.getEmployeeById(id);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable Long id, @RequestBody EmployeeDto employeeDto) {
-        EmployeeDto updatedEmployeeDto = employeeService.updateEmployee(id, employeeDto);
+    public EmployeeDto updateEmployee(@PathVariable Long id, @RequestBody EmployeeDto employeeDto) {
 
-        return ResponseEntity.ok(updatedEmployeeDto);
+        return employeeService.updateEmployee(id, employeeDto);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Long> deleteEmployee(@PathVariable Long id) {
+    public Long deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
 
-        return ResponseEntity.ok(id);
+        return id;
     }
 }
