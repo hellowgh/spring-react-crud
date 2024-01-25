@@ -27,10 +27,10 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<List<EmployeeDto>> getAllEmployee() {
+    public List<EmployeeDto> getAllEmployee() {
         List<EmployeeDto> employees = employeeService.getAllEmployees();
 
-        return ResponseEntity.ok(employees);
+        return employees;
     }
 
     @PostMapping
